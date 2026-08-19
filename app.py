@@ -48,9 +48,9 @@ def generate_menu(df):
     img = Image.open(base_path).convert('RGB')
     draw = ImageDraw.Draw(img)
     fonts_dir = os.path.join(os.path.dirname(__file__), 'fontes')
-    fonte_periodo = load_font(os.path.join(fonts_dir, 'Exo-Bold.ttf'), 46)
+    fonte_periodo = load_font(os.path.join(fonts_dir, 'Exo-Bold.ttf'), 46, bold=True)
     fonte_prato = load_font(os.path.join(fonts_dir, 'calibri.ttf'), 20)
-    fonte_evento = load_font(os.path.join(fonts_dir, 'Exo-Bold.ttf'), 28)
+    fonte_evento = load_font(os.path.join(fonts_dir, 'Exo-Bold.ttf'), 28, bold=True)
 
     draw.text((1150, 90), periodo, fill='#13A8C8', font=fonte_periodo)
     coordenadas = (100, 375, 655, 930, 1205)
@@ -97,11 +97,25 @@ def escrever_evento(draw, font, x, y, texto):
     escrever_multilinha(draw, font, x, y, texto)
 
 
-def load_font(path, size):
-    try:
-        return ImageFont.truetype(path, size)
-    except OSError:
-        return ImageFont.load_default(size=size)
+def load_font(path, size, bold=False):
+    candidates = [path]
+    if bold:
+        candidates.extend([
+            '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf',
+            'C:/Windows/Fonts/arialbd.ttf',
+        ])
+    else:
+        candidates.extend([
+            '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',
+            'C:/Windows/Fonts/arial.ttf',
+        ])
+
+    for candidate in candidates:
+        try:
+            return ImageFont.truetype(candidate, size)
+        except OSError:
+            continue
+    return ImageFont.load_default(size=size)
 
 
 if __name__ == '__main__':
