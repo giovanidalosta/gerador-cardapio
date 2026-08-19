@@ -48,9 +48,9 @@ def generate_menu(df):
     img = Image.open(base_path).convert('RGB')
     draw = ImageDraw.Draw(img)
     fonts_dir = os.path.join(os.path.dirname(__file__), 'fontes')
-    fonte_periodo = ImageFont.truetype(os.path.join(fonts_dir, 'Exo-Bold.ttf'), 46)
-    fonte_prato = ImageFont.truetype(os.path.join(fonts_dir, 'calibri.ttf'), 20)
-    fonte_evento = ImageFont.truetype(os.path.join(fonts_dir, 'Exo-Bold.ttf'), 24)
+    fonte_periodo = load_font(os.path.join(fonts_dir, 'Exo-Bold.ttf'), 46)
+    fonte_prato = load_font(os.path.join(fonts_dir, 'calibri.ttf'), 20)
+    fonte_evento = load_font(os.path.join(fonts_dir, 'Exo-Bold.ttf'), 24)
 
     draw.text((1150, 90), periodo, fill='#13A8C8', font=fonte_periodo)
     coordenadas = (100, 375, 655, 930, 1205)
