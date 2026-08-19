@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Cardápio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="app-shell">
+        <header class="topbar">
+            <div class="brand">
+                <span class="brand-mark" aria-hidden="true">🍽️</span>
+                <span>Gerador de Cardápio</span>
+            </div>
+            <span class="online-status"><span class="status-dot"></span>Online</span>
+        </header>
+
+        <section class="workspace">
+            <div class="control-panel">
+                <p class="eyebrow">CARDÁPIO</p>
+                <h1>Crie o seu<br>cardápio</h1>
+                <p class="intro">Envie sua planilha e gere uma imagem pronta para compartilhar ou salvar.</p>
+
+                <form id="upload-form" enctype="multipart/form-data">
+                    <label for="file-upload">Arquivo Excel</label>
+                    <div class="file-picker">
+                        <span class="file-icon" aria-hidden="true">▦</span>
+                        <span id="file-name">Selecione um arquivo .xlsx</span>
+                        <input type="file" id="file-upload" name="file" accept=".xlsx" required>
+                    </div>
+                    <button id="submit-button" type="submit">Gerar cardápio <span aria-hidden="true">→</span></button>
+                </form>
+                <p id="result-message" class="result-message" role="status"></p>
+                <div class="tip"><strong>Dica:</strong> use uma planilha Excel preenchida para manter o conteúdo do cardápio organizado.</div>
+            </div>
+
+            <div class="preview-panel">
+                <div class="preview-heading">
+                    <span>PRÉVIA</span>
+                    <span id="preview-status" class="preview-status">Aguardando</span>
+                </div>
+                <div class="preview-area">
+                    <div id="empty-preview" class="empty-preview">
+                        <span class="preview-icon" aria-hidden="true">✦</span>
+                        <strong>Nenhum cardápio gerado ainda</strong>
+                        <p>Selecione sua planilha e clique em gerar para visualizar o resultado.</p>
+                    </div>
+                    <img id="preview-image" alt="Prévia do cardápio gerado">
+                </div>
+                <a id="download-link" class="download-link" download="Cardapio.png">Baixar cardápio <span aria-hidden="true">↓</span></a>
+            </div>
+        </section>
+    </div>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
