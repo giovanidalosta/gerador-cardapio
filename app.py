@@ -50,7 +50,7 @@ def generate_menu(df):
     fonts_dir = os.path.join(os.path.dirname(__file__), 'fontes')
     fonte_periodo = load_font(os.path.join(fonts_dir, 'Exo-Bold.ttf'), 46, bold=True)
     fonte_prato = load_font(os.path.join(fonts_dir, 'calibri.ttf'), 19, bold=False)
-    fonte_evento = load_font(os.path.join(fonts_dir, 'Exo-Bold.ttf'), 26, bold=True)
+    fonte_evento = load_font(os.path.join(fonts_dir, 'Exo-Bold.ttf'), 25, bold=True)
 
     draw.text((1150, 90), periodo, fill='#13A8C8', font=fonte_periodo)
     coordenadas = (100, 375, 655, 930, 1205)
