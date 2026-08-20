@@ -49,8 +49,8 @@ def generate_menu(df):
     draw = ImageDraw.Draw(img)
     fonts_dir = os.path.join(os.path.dirname(__file__), 'fontes')
     fonte_periodo = load_font(os.path.join(fonts_dir, 'Exo-Bold.ttf'), 46, bold=True)
-    fonte_prato = load_font(os.path.join(fonts_dir, 'calibri.ttf'), 18)
-    fonte_evento = load_font(os.path.join(fonts_dir, 'Exo-Bold.ttf'), 20, bold=True)
+    fonte_prato = load_font(os.path.join(fonts_dir, 'calibri.ttf'), 19)
+    fonte_evento = load_font(os.path.join(fonts_dir, 'Exo-Bold.ttf'), 21, bold=True)
 
     draw.text((1150, 90), periodo, fill='#13A8C8', font=fonte_periodo)
     coordenadas = (100, 375, 655, 930, 1205)
@@ -90,7 +90,7 @@ def quebrar_texto(draw, font, texto, largura_max):
 
 def escrever_multilinha(draw, font, x, y, texto):
     for index, linha in enumerate(quebrar_texto(draw, font, texto, 250)):
-        draw.text((x, y + index * 22), linha, fill='#041621', font=font)
+        draw.text((x, y + index * 23), linha, fill='#041621', font=font)
 
 
 def escrever_evento(draw, font, x, y, texto):
