@@ -106,6 +106,7 @@ def load_font(path, size, bold=False):
         ])
     else:
         candidates.extend([
+            'C:/Windows/Fonts/calibri.ttf',
             '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',
             'C:/Windows/Fonts/arial.ttf',
         ])
