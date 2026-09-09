@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de Ikardápio</title>
+    <title>Gerador de Cardápio Semanal</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <main class="app-shell">
         <header class="topbar">
             <div class="brand">
-                <span class="brand-mark" aria-hidden="true">🍽️</span>
-                <span>Gerador de Ikardápio</span>
+                <img src="{{ url_for('static', filename='img/logo-ikatec-branca.png') }}" alt="Ikatec Tecnologia e Inovação" class="ikatec-logo">
+                <span class="brand-divider" aria-hidden="true"></span>
+                <span class="brand-title">Gerador de Cardápio Semanal</span>
             </div>
             <span class="online-status"><span class="status-dot"></span>Online</span>
         </header>
 
         <section class="workspace">
             <div class="control-panel">
-                <p class="eyebrow">CARDÁPIO</p>
-                <h1>Crie o cardápio<br>da semana</h1>
                 <p class="intro">Envie o arquivo Excel com as informações do cardápio e gere o arquivo de imagem.</p>
 
                 <form id="upload-form" enctype="multipart/form-data">
@@ -32,7 +31,32 @@
                     <button id="submit-button" type="submit">Gerar cardápio <span aria-hidden="true">→</span></button>
                 </form>
                 <p id="result-message" class="result-message" role="status"></p>
-                <div class="tip"><strong>Dica:</strong> use uma planilha Excel preenchida para manter o conteúdo do cardápio organizado.</div>
+                <div class="instructions">
+                    <div class="instruction-box wpp-box">
+                        <div class="instruction-header">
+                            <span class="icon" aria-hidden="true">💬</span>
+                            <strong>Como obter o cardápio</strong>
+                        </div>
+                        <p>Solicite o cardápio semanal para a <strong>Michele</strong>:</p>
+                        <div class="wpp-actions">
+                            <a href="https://wa.me/5514991368033" target="_blank" rel="noopener noreferrer" class="wpp-btn" title="Abrir WhatsApp da Michele">
+                                <span>Abrir WhatsApp ↗</span>
+                            </a>
+                            <button type="button" id="copy-wpp-btn" class="wpp-copy-btn" title="Clique para copiar o número">
+                                <span id="copy-wpp-icon" class="copy-icon" aria-hidden="true">📋</span>
+                                <span id="copy-wpp-text">(14) 99136-8033</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="instruction-box fix-box">
+                        <div class="instruction-header">
+                            <span class="icon" aria-hidden="true">✏️</span>
+                            <strong>Correções no cardápio gerado</strong>
+                        </div>
+                        <p>Em caso de erros ou divergências de digitação no cardápio gerado, abra o arquivo <strong>Excel</strong>, corrija o erro e envie novamente para o gerador.</p>
+                    </div>
+                </div>
             </div>
 
             <div class="preview-panel">
@@ -51,7 +75,7 @@
                 <a id="download-link" class="download-link" download="Cardapio.png">Baixar cardápio <span aria-hidden="true">↓</span></a>
             </div>
         </section>
-    </div>
+    </main>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>

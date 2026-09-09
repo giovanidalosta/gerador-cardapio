@@ -35,18 +35,18 @@ body {
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
 }
 
-.brand { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; }
-.brand-mark { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 10px; background: linear-gradient(135deg, var(--cyan), #19bfcf); box-shadow: 0 7px 18px rgba(55, 208, 232, 0.28); }
+.brand { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 700; }
+.ikatec-logo { height: 28px; width: auto; object-fit: contain; display: block; }
+.brand-divider { width: 1px; height: 20px; background: rgba(151, 188, 213, 0.28); margin: 0 2px; }
+.brand-title { white-space: nowrap; font-size: 15px; color: var(--text); letter-spacing: -0.01em; }
 .online-status { display: flex; align-items: center; gap: 7px; padding: 7px 12px; border: 1px solid rgba(51, 205, 165, 0.36); border-radius: 999px; color: #8fe2cb; font-size: 11px; }
 .status-dot { width: 6px; height: 6px; border-radius: 50%; background: #54dbad; }
 
 .workspace { display: grid; grid-template-columns: 320px 1fr; gap: 18px; margin-top: 18px; }
 .control-panel, .preview-panel { border: 1px solid var(--border); border-radius: 18px; background: rgba(13, 29, 44, 0.9); }
-.control-panel { min-height: 518px; padding: 24px 17px; }
-.eyebrow, .preview-heading { color: #abc2d5; font-size: 12px; font-weight: 700; letter-spacing: .04em; }
-.eyebrow { margin: 0 0 18px; }
-h1 { margin: 0 0 10px; font-size: 34px; line-height: 1.04; letter-spacing: 0; }
-.intro { max-width: 250px; margin: 0 0 25px; color: var(--muted); font-size: 13px; line-height: 1.55; }
+.control-panel { min-height: 518px; padding: 24px 20px; }
+.preview-heading { color: #abc2d5; font-size: 12px; font-weight: 700; letter-spacing: .04em; }
+.intro { margin: 0 0 20px; color: #b7cde0; font-size: 13.5px; line-height: 1.55; }
 label { display: block; margin-bottom: 8px; color: #abc2d5; font-size: 12px; font-weight: 700; }
 .file-picker { position: relative; display: flex; align-items: center; gap: 10px; height: 38px; padding: 0 12px; overflow: hidden; border: 1px solid var(--border); border-radius: 11px; background: rgba(15, 34, 51, .86); color: #879bad; font-size: 12px; }
 .file-picker:hover { border-color: rgba(67, 208, 235, .55); }
@@ -56,9 +56,129 @@ button { width: 100%; height: 40px; margin-top: 14px; border: 0; border-radius: 
 button:hover { filter: brightness(1.08); transform: translateY(-1px); }
 button:disabled { cursor: wait; opacity: .6; transform: none; }
 button span, .download-link span { margin-left: 8px; font-size: 17px; }
-.tip { margin-top: 15px; padding: 12px; border: 1px solid rgba(67, 208, 235, .2); border-radius: 10px; background: rgba(21, 59, 76, .44); color: #a8bdcc; font-size: 11px; line-height: 1.5; }
-.tip strong { color: #cee1ef; }
 .result-message { min-height: 16px; margin: 10px 0 0; color: #83d9cd; font-size: 11px; }
+
+.instructions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.instruction-box {
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: 11.5px;
+    line-height: 1.5;
+}
+
+.instruction-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+    font-size: 11.5px;
+    font-weight: 700;
+}
+
+.instruction-box p {
+    margin: 0 0 6px;
+    color: var(--muted);
+}
+
+.instruction-box p strong {
+    color: #cee1ef;
+}
+
+.wpp-box {
+    background: rgba(21, 59, 76, 0.38);
+    border-color: rgba(67, 208, 235, 0.22);
+}
+
+.wpp-box .instruction-header {
+    color: var(--cyan);
+}
+
+.wpp-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.wpp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 12px;
+    background: rgba(37, 211, 102, 0.15);
+    border: 1px solid rgba(37, 211, 102, 0.35);
+    border-radius: 8px;
+    color: #4ade80;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.wpp-btn:hover {
+    background: rgba(37, 211, 102, 0.28);
+    border-color: rgba(37, 211, 102, 0.6);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.wpp-copy-btn {
+    width: auto !important;
+    height: auto !important;
+    margin-top: 0 !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 12px;
+    background: rgba(15, 34, 51, 0.88);
+    border: 1px solid rgba(151, 188, 213, 0.25);
+    border-radius: 8px;
+    color: #cde2f2;
+    font-size: 11.5px;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.wpp-copy-btn:hover {
+    background: rgba(22, 48, 71, 0.95);
+    border-color: var(--cyan);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.wpp-copy-btn.copied {
+    background: rgba(37, 211, 102, 0.22);
+    border-color: #34d399;
+    color: #34d399;
+}
+
+.copy-icon {
+    font-size: 12px;
+}
+
+.fix-box {
+    background: rgba(28, 38, 64, 0.45);
+    border-color: rgba(199, 165, 252, 0.22);
+}
+
+.fix-box .instruction-header {
+    color: #c7a5fc;
+}
+
+.fix-box p {
+    margin: 0;
+}
 
 .preview-panel { min-width: 0; padding: 22px 16px 16px; }
 .preview-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
@@ -73,7 +193,13 @@ button span, .download-link span { margin-left: 8px; font-size: 17px; }
 
 @media (max-width: 700px) {
     body { padding: 14px; }
+    .topbar { padding: 10px 14px; }
+    .ikatec-logo { height: 24px; }
+    .brand { gap: 8px; font-size: 13px; }
+    .brand-title { font-size: 13px; }
     .workspace { grid-template-columns: 1fr; }
     .control-panel { min-height: 0; }
     .preview-area { min-height: 330px; }
+    .wpp-actions { flex-direction: column; align-items: stretch; }
+    .wpp-btn, .wpp-copy-btn { justify-content: center; }
 }

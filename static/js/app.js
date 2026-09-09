@@ -65,4 +65,47 @@ document.addEventListener("DOMContentLoaded", function() {
             submitButton.disabled = false;
         });
     });
+
+    // Copiar número do WhatsApp da Michele
+    const copyWppBtn = document.getElementById("copy-wpp-btn");
+    const copyWppIcon = document.getElementById("copy-wpp-icon");
+    const copyWppText = document.getElementById("copy-wpp-text");
+
+    if (copyWppBtn) {
+        copyWppBtn.addEventListener("click", function() {
+            const phone = "14 99136-8033";
+            const onSuccess = () => {
+                copyWppBtn.classList.add("copied");
+                if (copyWppIcon) copyWppIcon.textContent = "✓";
+                if (copyWppText) copyWppText.textContent = "Copiado!";
+                setTimeout(() => {
+                    copyWppBtn.classList.remove("copied");
+                    if (copyWppIcon) copyWppIcon.textContent = "📋";
+                    if (copyWppText) copyWppText.textContent = "(14) 99136-8033";
+                }, 2000);
+            };
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(phone).then(onSuccess).catch(() => fallbackCopy(phone, onSuccess));
+            } else {
+                fallbackCopy(phone, onSuccess);
+            }
+        });
+    }
+
+    function fallbackCopy(text, callback) {
+        const temp = document.createElement("textarea");
+        temp.value = text;
+        temp.style.position = "fixed";
+        temp.style.opacity = "0";
+        document.body.appendChild(temp);
+        temp.select();
+        try {
+            document.execCommand("copy");
+            if (callback) callback();
+        } catch (err) {
+            console.error("Falha ao copiar:", err);
+        }
+        document.body.removeChild(temp);
+    }
 });
