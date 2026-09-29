@@ -10,7 +10,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const downloadLink = document.getElementById("download-link");
 
     fileInput.addEventListener("change", function() {
-        fileName.textContent = fileInput.files[0] ? fileInput.files[0].name : "Selecione um arquivo .xlsx";
+        if (fileName) {
+            fileName.textContent = fileInput.files[0] ? fileInput.files[0].name : "Selecione um arquivo .xlsx";
+        }
     });
 
     form.addEventListener("submit", function(event) {
